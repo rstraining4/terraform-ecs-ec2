@@ -1,5 +1,9 @@
-FROM java:8
-WORKDIR /
-ADD sasaws-0.0.1-SNAPSHOT.jar sasaws-0.0.1-SNAPSHOT.jar
-EXPOSE 8080
-CMD java -jar sasaws-0.0.1-SNAPSHOT.jar
+FROM tecadmin/ubuntu-ssh:16.04
+
+RUN apt-get update \
+   && apt-get install -y apache2
+
+COPY ./webfiles/index.html /var/www/html
+WORKDIR /var/www/html
+CMD ["apachectl", "-D", "FOREGROUND"]
+EXPOSE 80
