@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     parameters {
-		string(name: "git_codebase", defaultValue: "git@ec2-18-200-215-85.eu-west-1.compute.amazonaws.com:sumerabegum/sas-to-aws---ui.git", description: "git location of the updatedb app files")
+		string(name: "git_codebase", defaultValue: "https://github.com/rstraining4/terraform-ecs-ec2.git", description: "git location of the updatedb app files")
 }
 
 	environment {
