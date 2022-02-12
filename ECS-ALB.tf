@@ -5,8 +5,8 @@
 resource "aws_alb" "ecs-alb" {
   #internal            = "${var.internal}"  # internal = true else false
   name                = "ecs-alb"
-  subnets             = [for subnet in aws_subnet.public : var.default_subnet.id] 
-  security_groups     = [aws_security_group.var.default_security_group]
+  subnets             = [for subnet in aws_subnet.public : Public.id] 
+  security_groups     = [aws_security_group.var.AWS9.id]
 }
 
 
