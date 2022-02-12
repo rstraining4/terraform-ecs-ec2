@@ -13,7 +13,7 @@ resource "aws_route53_record" "dns" {
 
   alias {
     evaluate_target_health = false
-    name                   = "${aws_lb.loadbalancer.dns_name}"
-    zone_id                = "${aws_lb.loadbalancer.zone_id}"
+    name                   = "${aws_alb.loadbalancer.dns_name}"
+    zone_id                = "${aws_alb.loadbalancer.zone_id}"
   }
 }

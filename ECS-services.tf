@@ -3,7 +3,7 @@
 ##############################################################
 
 resource "aws_ecs_service" "service" {
-  cluster                = "${aws_ecs_cluster.cluster.id}"                                 # ecs cluster id
+  cluster                = "${aws_ecs_cluster.ecs-ec2-cluster.id}"                                 # ecs cluster id
   desired_count          = 1                                                         # no of task running
   launch_type            = "EC2"                                                     # Cluster type ECS OR FARGATE
   name                   = "openapi-service"                                         # Name of service
@@ -18,5 +18,5 @@ resource "aws_ecs_service" "service" {
     subnets               = var.default_subnet  ## Enter the private subnet id
     assign_public_ip      = "false"
   }
-  depends_on              = ["aws_lb_listener.lb_listener"]
+  depends_on              = ["aws_alb_listener.alb_listener"]
 }

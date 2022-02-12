@@ -18,12 +18,12 @@ resource "aws_instance" "ec2_instance" {
   }
   */
 
-  tags {
-    Name                   = "ecs-ec2_instance"
-}
-
-  lifecycle {
+lifecycle {
     ignore_changes         = ["ami", "user_data", "subnet_id", "key_name", "ebs_optimized", "private_ip"]
+  }
+
+tags = {
+    Name = "web-instance"
   }
 }
 

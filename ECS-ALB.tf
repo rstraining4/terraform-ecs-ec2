@@ -2,7 +2,7 @@
 # AWS ECS-ALB
 ####################################################################
 
-resource "aws_lb" "ecs-alb" {
+resource "aws_alb" "ecs-alb" {
   #internal            = "${var.internal}"  # internal = true else false
   name                = "ecs-alb"
   subnets             = var.default_subnet 
@@ -10,7 +10,7 @@ resource "aws_lb" "ecs-alb" {
 }
 
 
-resource "aws_lb_target_group" "ecs-target-group" {
+resource "aws_alb_target_group" "ecs-target-group" {
   name        = "ecs-target-group"
   port        = "80"
   protocol    = "HTTP"
