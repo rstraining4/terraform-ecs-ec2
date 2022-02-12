@@ -5,7 +5,7 @@ resource "aws_instance" "ec2_instance" {
   ami                    = var.ami
   subnet_id              = var.default_subnet
   instance_type          = "t2.medium"
-  iam_instance_profile   = "ecs-instance-role" 
+  iam_instance_profile   = "ecs-instance-profile" 
   vpc_security_group_ids = ["sg-03c4e631d072f58ed"] 
   key_name               = "AWS9" 
   ebs_optimized          = "false"
