@@ -3,7 +3,7 @@ pipeline {
 	parameters {
 		string(name: "terra_action", defaultValue: "plan", description: "Terraform action to be performed")
 		//string(name: "git_codebase", defaultValue: "git@ec2-18-200-215-85.eu-west-1.compute.amazonaws.com:ibm-admin/sastoaws-infra.git", description: "git location of the terraform config files")
-		string(name: "main_dir_name", defaultValue: "/var/lib/jenkins/workspace/prod/CD_Pipelines/terraform-ecs-ec2", description: "main directory to execute terraform main.tf from")
+		//string(name: "main_dir_name", defaultValue: "/var/lib/jenkins/workspace/prod/CD_Pipelines/terraform-ecs-ec2", description: "main directory to execute terraform main.tf from")
 		string(name: "tf_vars", defaultValue: "", description: "TF vars to be passed in TF command. ex - image_id=ami-abc123")
 	}
     stages {
@@ -14,10 +14,7 @@ pipeline {
         }
         stage('Terraform action - init') { 
             steps {
-				dir("${params.main_dir_name}"){
-					sh "pwd"
-					sh "terraform init"
-				}
+				sh ('terraform init')
             }
         }
 		stage('Terraform action - plan') { 
@@ -27,15 +24,14 @@ pipeline {
 				}
 			}
             steps {
-				dir("${params.main_dir_name}"){
-					sh "pwd"
+				sh "pwd"
 					script {
 						if(params.tf_vars == "") {
 							sh "terraform plan"				
 						}
 						else{
 							sh 'terraform plan -var="$tf_vars"'				
-						}
+						
 					}
 					
 				}
@@ -48,15 +44,14 @@ pipeline {
 				}
 			}
             steps {
-				dir("${params.main_dir_name}"){
-					sh "pwd"
+				sh "pwd"
 					script {
 						if(params.tf_vars == "") {
 							sh "terraform apply --auto-approve"				
 						}
 						else{
 							sh 'terraform apply -var="$tf_vars" --auto-approve'				
-						}
+						
 					}
 				}
             }
@@ -68,11 +63,10 @@ pipeline {
 				}
 			}
             steps {
-				dir("${params.main_dir_name}"){
 					sh "pwd"
 					sh "terraform plan --destroy"
 					sh "terraform destroy --auto-approve"
-				}
+				
             }
         }
     }
