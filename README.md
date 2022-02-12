@@ -28,3 +28,14 @@ container_definitions    = "${data.template_file.task_definition.rendered}"
 rendered:
 The template_file data source renders a template from a template string, which is usually loaded from an external file. Note. In Terraform 0.12 and later, the templatefile function offers a built-in mechanism for rendering a template from a file.
 
+========================================================================================================
+Fix Junk charactor in console output:
+
+install ansicolor plugin
+and update pipeline as below
+
+options {
+        ansiColor('xterm')
+    }
+
+========================================================================================================
