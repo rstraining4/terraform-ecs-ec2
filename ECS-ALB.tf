@@ -5,8 +5,8 @@
 resource "aws_lb" "loadbalancer" {
   #internal            = "${var.internal}"  # internal = true else false
   name                = "ecs-alb"
-  subnets             = aws_subnet.public.*.id 
-  security_groups     = [aws_security_group.alb-ecs-sg.id]
+  subnets             = var.default_subnet 
+  security_groups     = var.default_security_group
 }
 
 
@@ -30,7 +30,7 @@ resource "aws_lb_target_group" "lb_target_group" {
 }
 
 resource "aws_alb_listener" "ecsapp" {
-  load_balancer_arn = aws_alb.alb.id
+  load_balancer_arn = aws_alb.ecs-alb.id
   port              = var.app_port
   protocol          = "HTTP"
   #ssl_policy        = "ELBSecurityPolicy-2016-08"
