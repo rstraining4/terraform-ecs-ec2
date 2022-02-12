@@ -11,11 +11,12 @@ resource "aws_instance" "ec2_instance" {
   ebs_optimized          = "false"
   source_dest_check      = "false"
   user_data              = "${data.template_file.user_data.rendered}"
-  root_block_device = {
+  /*root_block_device = {
     volume_type           = "gp2"
     volume_size           = "30"
     delete_on_termination = "true"
   }
+  */
 
   tags {
     Name                   = "ecs-ec2_instance"
