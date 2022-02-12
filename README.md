@@ -18,3 +18,13 @@ ECS task role is specific capabilities within the task itself, e.g:
 
 When your actual code runs
 
+=======================================================================================================
+data "template_file" "task_definition" {
+  template = "${file("${path.module}/task_definition.json")}"
+}
+
+container_definitions    = "${data.template_file.task_definition.rendered}"  
+
+rendered:
+The template_file data source renders a template from a template string, which is usually loaded from an external file. Note. In Terraform 0.12 and later, the templatefile function offers a built-in mechanism for rendering a template from a file.
+
