@@ -3,9 +3,9 @@
 #########################################################
 
 resource "aws_ecs_cluster" "cluster" {
-  name = "ecs-devl-cluster"
+  name = "ecs-ec2-cluster"
   tags = {
-   name = ecs-cluster-name
+   name = ecs-ec2-cluster
    }
    
   }

@@ -11,11 +11,11 @@ resource "aws_ecs_service" "service" {
   load_balancer {
     container_name       = "openapi-ecs-container"                                  #"container_${var.component}_${var.environment}"
     container_port       = "8080"
-    target_group_arn     = "${aws_lb_target_group.lb_target_group.arn}"         # attaching load_balancer target group to ecs
+    target_group_arn     = "${aws_lb_target_group.ecs-target-group.arn}"         # attaching load_balancer target group to ecs
  }
   network_configuration {
-    security_groups       = ["sg-01849003c4f9203ca"] #CHANGE THIS
-    subnets               = ["${var.subnet1}", "${var.subnet2}"]  ## Enter the private subnet id
+    security_groups       = var.default_security_group 
+    subnets               = var.default_subnet  ## Enter the private subnet id
     assign_public_ip      = "false"
   }
   depends_on              = ["aws_lb_listener.lb_listener"]

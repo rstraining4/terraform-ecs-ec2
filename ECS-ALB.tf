@@ -1,20 +1,20 @@
 ####################################################################
 # AWS ECS-ALB
-#####################################################################
+####################################################################
 
 resource "aws_lb" "loadbalancer" {
-  internal            = "${var.internal}"  # internal = true else false
-  name                = "openapi-alb-name"
-  subnets             = ["${var.subnet1}", "${var.subnet2}"] # enter the private subnet 
-  security_groups     = ["sg-01849003c4f9203ca"] #CHANGE THIS
+  #internal            = "${var.internal}"  # internal = true else false
+  name                = "ecs-alb"
+  subnets             = aws_subnet.public.*.id 
+  security_groups     = [aws_security_group.alb-ecs-sg.id]
 }
 
 
 resource "aws_lb_target_group" "lb_target_group" {
-  name        = "openapi-target-alb-name"
+  name        = "ecs-target-group"
   port        = "80"
   protocol    = "HTTP"
-  vpc_id      = "vpc-000851116d62e0c13" # CHNAGE THIS
+  vpc_id      = var.default_vpc
   target_type = "ip"
 
 
@@ -23,20 +23,21 @@ resource "aws_lb_target_group" "lb_target_group" {
     healthy_threshold   = "3"
     interval            = "10"
     port                = "8080"
-    path                = "/index.html"
+    path                = var.health_check_path
     protocol            = "HTTP"
     unhealthy_threshold = "3"
   }
 }
 
-resource "aws_lb_listener" "lb_listener" {
-  "default_action" {
-    target_group_arn = "${aws_lb_target_group.lb_target_group.id}"
-    type             = "forward"
-  }
-
-  #certificate_arn   = "arn:aws:acm:us-east-1:689019322137:certificate/9fcdad0a-7350-476c-b7bd-3a530cf03090"
-  load_balancer_arn = "${aws_lb.loadbalancer.arn}"
-  port              = "80"
+resource "aws_alb_listener" "ecsapp" {
+  load_balancer_arn = aws_alb.alb.id
+  port              = var.app_port
   protocol          = "HTTP"
+  #ssl_policy        = "ELBSecurityPolicy-2016-08"
+  #certificate_arn   = "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4"
+  #enable above 2 if you are using HTTPS listner and change protocal from HTTPS to HTTPS
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_alb_target_group.ecs-target-group.arn
+  }
 }

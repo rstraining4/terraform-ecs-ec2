@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_log_group" "log_group" {
-  name = "openapi-devl-cw"
+  name = "ecs-log-group"
     tags = {
     Environment = "production"
   }
