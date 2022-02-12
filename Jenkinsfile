@@ -9,7 +9,7 @@ pipeline {
     stages {
 		stage('Terraform code checkout') { 
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rstraining4/terraform-ecs-ec2.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rstraining4/terraform-ecs-ec2.git']]])
             }
         }
         stage('Terraform action - init') { 
