@@ -1,14 +1,14 @@
 [
     {
         "name": "openapi-ecs-container",
-       "image": "398250248933.dkr.ecr.ap-south-1.amazonaws.com/ecs-ec2:latest",
+       "image": "398250248933.dkr.ecr.ap-south-1.amazonaws.com/ecs-ec2:var.image_version_ui",
         "cpu": 10,
         "memory": 512,
         "logConfiguration": {
           "logDriver": "awslogs",
           "options": {
-            "awslogs-group": "openapi-devl-cw",
-            "awslogs-region": "eu-west-1",
+            "awslogs-group": "ecs-log-group",
+            "awslogs-region": "ap-south-1",
             "awslogs-stream-prefix": "ecs"
           }
         },

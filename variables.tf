@@ -62,4 +62,8 @@ variable "default_security_group" {
   default     = "sg-03c4e631d072f58ed"
   description = "Default VPC if VPC is not being created"
 }
+variable "image_version_ui" {
+  default     = ""
+  description = "Default VPC if VPC is not being created"
+}
 
