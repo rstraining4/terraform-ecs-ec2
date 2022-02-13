@@ -10,7 +10,7 @@ resource "aws_instance" "ec2_instance" {
   key_name               = "AWS9" 
   ebs_optimized          = "false"
   source_dest_check      = "false"
-  user_data              = "${data.template_file.user_data.rendered}"
+  #user_data              = "${data.template_file.user_data.rendered}"
   user_data              = "${file("user_data.tpl")}"
   /*root_block_device = {
     volume_type           = "gp2"
