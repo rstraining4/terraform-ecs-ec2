@@ -11,6 +11,7 @@ resource "aws_instance" "ec2_instance" {
   ebs_optimized          = "false"
   source_dest_check      = "false"
   user_data              = "${data.template_file.user_data.rendered}"
+  user_data              = "${file("user_data.tpl")}"
   /*root_block_device = {
     volume_type           = "gp2"
     volume_size           = "30"
@@ -23,10 +24,10 @@ lifecycle {
   }
 
 tags = {
-    Name = "web-instance"
+    Name = "ecs-instance"
   }
 }
 
-data "template_file" "user_data" {
-  template = "${file("${path.module}/user_data.tpl")}"
-}
+//data "template_file" "user_data" {
+//  template = "${file("${path.module}/user_data.tpl")}"
+//}
