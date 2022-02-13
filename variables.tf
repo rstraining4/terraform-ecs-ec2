@@ -54,7 +54,7 @@ variable "default_subnet" {
 }
 
 variable "ami" {
-  default     = "ami-0c6615d1e95c98aca"
+  default     = "ami-0dafa01c8100180f8"
   description = "Default Amazon Linux AMI"
 }
 
