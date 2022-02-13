@@ -11,7 +11,7 @@ resource "aws_instance" "ec2_instance" {
   ebs_optimized          = "false"
   source_dest_check      = "false"
   #user_data              = "${data.template_file.user_data.rendered}"
-  user_data              = "${file("user_data.tpl")}"
+  user_data              = "${file("user_data.sh")}"
   /*root_block_device = {
     volume_type           = "gp2"
     volume_size           = "30"
