@@ -6,7 +6,7 @@ resource "aws_instance" "ec2_instance" {
   subnet_id              = var.default_subnet
   instance_type          = "t2.medium"
   iam_instance_profile   = "ecs-instance-profile" 
-  vpc_security_group_ids = ["sg-03c4e631d072f58ed"] 
+  vpc_security_group_ids = ["subnet-0eb3e2119be71c68b"]
   key_name               = "AWS9" 
   ebs_optimized          = "false"
   source_dest_check      = "false"
