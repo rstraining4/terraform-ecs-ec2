@@ -10,6 +10,7 @@ resource "aws_instance" "ec2_instance" {
   key_name               = "AWS10"
   ebs_optimized          = "false"
   source_dest_check      = "false"
+  associate_public_ip_address = "true"
   #user_data              = "${data.template_file.user_data.rendered}"
   user_data              = "${file("user_data.sh")}"
   /*root_block_device = {
