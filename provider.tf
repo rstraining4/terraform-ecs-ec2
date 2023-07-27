@@ -8,8 +8,8 @@ terraform {
 }
 
 provider "aws" {
-  #access_key = "AKIAXWQJBPEHJJUFSTCU"
-  #secret_key = "yihmqegA4ChN8tLHxvT0KBSUhc7aix8EOzXUtWmP"
+  #access_key = "put-your-access-key"
+  #secret_key = "put-your-secret-key"
   region     = var.aws_region
   #if you are running from AWS ec2 linux instance please use bellow credentials section
   shared_credentials_file = "$HOME/.aws/credentials"
