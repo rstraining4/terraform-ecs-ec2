@@ -1,8 +1,5 @@
 pipeline {
     agent any
-	options {
-        #ansiColor('xterm')
-    }
 	parameters {
 		string(name: "terra_action", defaultValue: "plan", description: "Terraform action to be performed")
 		//string(name: "git_codebase", defaultValue: "git@ec2-18-200-215-85.eu-west-1.compute.amazonaws.com:ibm-admin/sastoaws-infra.git", description: "git location of the terraform config files")
