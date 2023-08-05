@@ -6,6 +6,10 @@ pipeline {
 		//string(name: "main_dir_name", defaultValue: "/var/lib/jenkins/workspace/prod/CD_Pipelines/terraform-ecs-ec2", description: "main directory to execute terraform main.tf from")
 		string(name: "tf_vars", defaultValue: "", description: "TF vars to be passed in TF command. ex - image_id=ami-abc123")
 	}
+	environment {
+            AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+            AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    }
     stages {
 		stage('Terraform code checkout') { 
             steps {
