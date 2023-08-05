@@ -7,7 +7,7 @@ resource "aws_alb" "ecs-alb" {
   name                = "ecs-alb"
   #subnets             = [for subnet in aws_subnet.public : Public.id] 
   #security_groups     = [aws_security_group.AWS9.id]
-  subnets             = ["subnet-0eae5ff3b78366cc1","subnet-09c273597170a47f7"]
+  subnets             = ["subnet-0eae5ff3b78366cc1","subnet-02668327606a648b1"]
   security_groups     = ["sg-00f4dde0953e450c6"]
 }
 
