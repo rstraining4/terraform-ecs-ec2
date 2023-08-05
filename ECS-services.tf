@@ -16,8 +16,8 @@ resource "aws_ecs_service" "service" {
   network_configuration {
     #security_groups       = var.default_security_group 
     #subnets               = var.default_subnet
-    security_groups       = ["sg-0d3f9b88f5c8b41ad"]
-    subnets               = ["subnet-0eb3e2119be71c68b"]
+    security_groups       = ["sg-00f4dde0953e450c6"]
+    subnets               = ["subnet-0eae5ff3b78366cc1"]
     assign_public_ip      = "false"
   }
   depends_on              = ["aws_alb_listener.ecsapp"]
