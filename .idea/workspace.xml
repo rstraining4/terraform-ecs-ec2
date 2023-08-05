@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f9dd424-c940-41f8-a1cc-e47c775a2598" name="Changes" comment="Jenkinsfile update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provider.tf" beforeDir="false" afterPath="$PROJECT_DIR$/provider.tf" afterDir="false" />
-    </list>
+    <list default="true" id="5f9dd424-c940-41f8-a1cc-e47c775a2598" name="Changes" comment="Jenkinsfile update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690805173341</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Jenkinsfile update">
+      <option name="closed" value="true" />
+      <created>1691225726311</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1691225726311</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

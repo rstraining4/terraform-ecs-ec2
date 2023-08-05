@@ -44,22 +44,22 @@ variable "fargate_memory" {
 }
 
 variable "default_vpc" {
-  default     = "vpc-023f54504258c96cf"
+  default     = "vpc-06416506df0d6f21a"
   description = "Default VPC if VPC is not being created"
 }
 
 variable "default_subnet" {
-  default     = "subnet-0eb3e2119be71c68b"
+  default     = "subnet-0eae5ff3b78366cc1"
   description = "Default VPC if VPC is not being created"
 }
 
 variable "ami" {
-  default     = "ami-0dafa01c8100180f8"
+  default     = "ami-0ded8326293d3201b"
   description = "Default Amazon Linux AMI"
 }
 
 variable "default_security_group" {
-  default     = "sg-0d3f9b88f5c8b41ad"
+  default     = "sg-00f4dde0953e450c6"
   description = "Default VPC if VPC is not being created"
 }
 variable "image_version_ui" {
