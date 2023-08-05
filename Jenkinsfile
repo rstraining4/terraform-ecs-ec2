@@ -10,7 +10,6 @@ pipeline {
 		string(name: "tf_vars", defaultValue: "", description: "TF vars to be passed in TF command. ex - image_id=ami-abc123")
 	}
 
-Add this
     stages {
 		stage('Terraform code checkout') { 
             steps {
